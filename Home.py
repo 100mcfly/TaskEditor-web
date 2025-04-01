@@ -12,7 +12,9 @@ def add_task():
 
 st.title("Task Editor")
 st.subheader("Add, Edit and Delete Tasks")
-st.write("The goal is to improve organization and productivity")
+st.write("The goal is to improve <b>organization</b> and <b>productivity</b>.", unsafe_allow_html=True)
+
+st.text_input(label="", placeholder="Add new task", on_change=add_task, key="new_task")
 
 for index, task in enumerate(tasks):
     checkbox = st.checkbox(task, key=task)
@@ -21,5 +23,3 @@ for index, task in enumerate(tasks):
         TaskEdirorGUI_functions.write_tasks(tasks)
         del st.session_state[task]
         st.rerun()
-
-st.text_input(label="", placeholder="Add new task", on_change=add_task, key="new_task")
